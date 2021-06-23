@@ -17,10 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/crud', function(){
+Route::get('/productos', function(){
     return view('crud-inventario');
-})->name('crud');
+})->name('productos');
+
+Route::get('/usuarios', function(){
+    return view('crud-user');
+})->name('usuarios');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user', 'HomeController@index')->name('user');

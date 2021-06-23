@@ -1,80 +1,63 @@
 <div>
 
-        <div class="form-group row">
-            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+        <div class="col-12 col-md-4 mt-1 mb-2">
+            <div class="card">
+                @if ($isEdit)
+                    <h5 class="card-header text-center">Editar Producto</h5>
+                @else
+                    <h5 class="card-header text-center">Crear Usuario</h5>
+                @endif
 
-            <div class="col-md-6">
-                <input wire:model="name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <div class="card-body">
+                    {{-- NOMBRE --}}
+                    <div class="form-group">
+                        <label for="name">Ingrese el nombre</label>
+                        <input type="text" name="name" wire:model.defer="name" id="name" class="form-control">
+                        @error("name")
+                            <span style="color:red;">Tiennes que llenar el campo Nombre</span>
+                        @enderror
+                    </div>
+                    {{-- COSTO --}}
+                    <div class="form-group">
+                        <label for="price">Ingrese el Correo Electronico:</label>
+                        <input type="email" name="price" wire:model.defer="email" id="price" class="form-control">
+                        @error("price")
+                            <span style="color:red;">Tiennes que llenar el campo Correo</span>
+                        @enderror
+                    </div>
+                    {{-- INVENTARIO --}}
+                    <div class="form-group">
+                        <label for="stock">Ingrese el contraseña:</label>
+                        <input type="password" name="stock" wire:model.defer="pass" id="stock" class="form-control">
+                        @error("stock")
+                            <span style="color:red;">Tiennes que llenar el campo Inventario</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Ingrese la direccion:</label>
+                        <input type="text" name="stock" wire:model.defer="address" id="stock" class="form-control">
+                        @error("stock")
+                            <span style="color:red;">Tiennes que llenar el campo Inventario</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Ingrese el cedula:</label>
+                        <input type="number" name="stock" wire:model.defer="cedula" id="stock" class="form-control">
+                        @error("stock")
+                            <span style="color:red;">Tiennes que llenar el campo Inventario</span>
+                        @enderror
+                    </div>
+                    {{-- GUARDAR --}}
+                    <div class="form-group text-center">
+                        @if ($isEdit)
+                            <button class="btn btn-success" wire:click="updateUser">Editar</button>
+                            <button class="btn btn-danger" wire:click="default">Cancelar</button>
+                        @else 
+                            <button class="btn btn-success" wire:click="createUser">Guardar</button>
+                            <button class="btn btn-danger" wire:click="default">Borrar Datos</button>
+                        @endif
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electronico') }}</label>
-
-            <div class="col-md-6">
-                <input wire:model="email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
-
-            <div class="col-md-6">
-                <input wire:model="pass" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Ingresa tu direccion') }}</label>
-
-            <div class="col-md-6">
-                <input wire:model="address" id="address" type="text" class="form-control" name="address" required autocomplete="new-password">
-                @error('address')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            </div>
-        </div>
-        
-
-        <div class="form-group row">
-            <label wire:model="cedula" for="cedula" class="col-md-4 col-form-label text-md-right">{{ __('Ingresa tu cedula') }}</label>
-
-            <div class="col-md-6">
-                <input id="cedula" type="text" class="form-control" name="cedula" required autocomplete="new-password">
-                @error('cedula')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            </div>
-        </div>
-
-
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button  class="btn btn-primary">
-                    {{ __('Register') }}
-                </button>
-            </div>
-        </div>
+        </div> {{-- END 1ERA COLUMNA COL-4 --}}
 </div>
