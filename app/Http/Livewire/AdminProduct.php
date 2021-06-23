@@ -31,6 +31,8 @@ class AdminProduct extends Component
             'stock'=>$this->stock,
             'price'=>$this->price,
         ]);
+
+        $this->default();
     }
 
     public function destroy($id){
@@ -68,6 +70,19 @@ class AdminProduct extends Component
     }
 
     public function save(){
+
         $product = Product::find($this->productID);
+
+        $this->resetErrorBag();
+
+        $this->validate();
+
+        $product->update([
+            'name'=>$this->name,
+            'stock'=>$this->stock,
+            'price'=>$this->price,
+        ]);
+
+        $this->default();
     }
 }
