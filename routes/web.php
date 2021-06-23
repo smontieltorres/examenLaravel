@@ -17,11 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-Route::get('/productos', function(){
-=======
 Route::get('/administracion', function(){
->>>>>>> 4e9ca2513d30afc875f5490160a188d7170de402
     return view('crud-inventario');
 })->name('productos');
 
