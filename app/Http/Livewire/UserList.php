@@ -8,47 +8,42 @@ use Illuminate\Support\Facades\Hash;
 
 class UserList extends Component
 {
-
-    public $name, $email, $pass, $address, $cedula;
+    //Variables de estado, estas determinan si se va a editar o crear un nuevo usuario//
     public $Edit = false, $Create = false; 
 
-    protected $rules = [
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required','string', 'min:8'],
-        'address' => 'required',
-        "cedula" => "required"
-    ];
 
+    //Funcion render, renderiza la vista bajo los parametros especificados
     public function render()
     {
+        //variable de usuarios, pasada a la vista para renderizar la lista de usuarios
         $users = User::all();
+        /*return de funcion, aqui se devuelve la vista al navegador, junto a la variable especificada por el metodo compact*/
         return view('livewire.user-list', compact("users"));
     }
 
-
+    //Funcion getAction, determina que accion va a realizarse y genera un evento en consecuencia//
     public function getAction($action, $id){
         if($action="edit"){
+            //Setea la variable edit para actualizar la vista a funcion de edicion//
             $this->Edit=true;
+            //Envia un evento con el id para identificar al usuario a editar//
             $this->emit("edit", $id);
         }else{
+            //Setea la variable para actualizar la vista a la funcion de edicion//
             $this->Create->true;
         }
     }
 
-
+    //funcion de deleteUser, toma un id pasado por la vista y elimina el usuario de la base de datos//
     public function deleteUser($id){
+        //Busca al usuario especificado//
         $User = User::find($id);
-        
+        //Elmina al usuario seleccionado//
         $User->delete($id);
     }
 
+    //Configura las variables a un estado por defecto//
     public function default(){
-        $this->name = "";
-        $this->email = "";
-        $this->pass = "";
-        $this->cedula = "";
-        $this->address = "";
         $this->Edit=false;
         $this->Create=false;
         // if ($this->isEdit == true) {

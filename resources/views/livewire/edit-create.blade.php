@@ -1,10 +1,10 @@
 <div>
-
+{{-- {{ $users }} --}}
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
             <div class="col-md-6">
-                <input wire:model="name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                <input wire:model="name" id="name" type="text" class="form-control" >
 
                 @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electronico') }}</label>
 
             <div class="col-md-6">
-                <input wire:model="email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                <input wire:model="email" id="email" type="email" class="form-control" required autocomplete="email">
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -57,10 +57,10 @@
         
 
         <div class="form-group row">
-            <label wire:model="cedula" for="cedula" class="col-md-4 col-form-label text-md-right">{{ __('Ingresa tu cedula') }}</label>
+            <label  for="cedula" class="col-md-4 col-form-label text-md-right">{{ __('Ingresa tu cedula') }}</label>
 
             <div class="col-md-6">
-                <input id="cedula" type="text" class="form-control" name="cedula" required autocomplete="new-password">
+                <input wire:model="cedula" id="cedula" type="text" class="form-control" name="cedula" required autocomplete="new-password">
                 @error('cedula')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -72,9 +72,10 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button  class="btn btn-primary">
-                    {{ __('Register') }}
+                <button  class="btn btn-primary" wire:click="updateUser">
+                    {{ __('Actualizar') }}
                 </button>
             </div>
         </div>
+
 </div>
