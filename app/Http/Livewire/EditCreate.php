@@ -15,7 +15,7 @@ class EditCreate extends Component
 
     protected $rules = [
         'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'email' => ['required', 'string', 'email', 'max:255'],
         'address' => 'required',
         "cedula" => "required"
     ];
@@ -26,7 +26,7 @@ class EditCreate extends Component
     }
 
     public function updateUser(){
-        $user = User::find($this->id);
+        $user = User::find($this->idUser);
 
         $this->resetErrorBag();
         $this->validate();
@@ -56,7 +56,7 @@ class EditCreate extends Component
 
         $this->name = $UserEdit->name;
         $this->email = $UserEdit->email;
-        $this->password = "";
+        $this->pass = "";
         $this->cedula = $UserEdit->cedula;
         $this->address = $UserEdit->address;
     }
