@@ -42,7 +42,7 @@ class EditCreate extends Component
             $user->update([
                 'name' => $this->name,
                 'email' => $this->email,
-                'pass' => Hash::make($this->pass),
+                'password' => Hash::make($this->pass),
                 'address' => $this->address,
                 'cedula' => $this->cedula
             ]);
@@ -85,7 +85,7 @@ class EditCreate extends Component
         $this->address = "";
         if ($this->isEdit == true) {
             $this->isEdit = false;
-            return redirect()->to('/user');
+            return redirect()->to('/home');
         }
     }
 }
