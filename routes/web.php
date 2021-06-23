@@ -17,10 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
+Route::get('/productos', function(){
+=======
 Route::get('/administracion', function(){
+>>>>>>> 4e9ca2513d30afc875f5490160a188d7170de402
     return view('crud-inventario');
-})->name('crud');
+})->name('productos');
+
+Route::get('/usuarios', function(){
+    return view('crud-user');
+})->name('usuarios');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user', 'HomeController@index')->name('user');

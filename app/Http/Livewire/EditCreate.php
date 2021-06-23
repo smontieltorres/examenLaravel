@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Hash;
 class EditCreate extends Component
 {
 
-    public $name, $email, $pass, $address, $cedula, $idUser;
+    public $name, $email, $pass, $address, $cedula, $userID, $isEdit=false;
 
     protected $listeners = ["edit"=>"setUpdateData"];
 
     protected $rules = [
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255'],
+        'name' => ['required'],
+        'email' => ['required'],
         'address' => 'required',
         "cedula" => "required"
     ];
@@ -26,19 +26,19 @@ class EditCreate extends Component
     }
 
     public function updateUser(){
-        $user = User::find($this->idUser);
+        $user = User::find($this->userID);
 
         $this->resetErrorBag();
         $this->validate();
 
-        if($this->pass == ""){
+        if ($this->pass == "") {
             $user->update([
                 'name' => $this->name,
                 'email' => $this->email,
                 'address' => $this->address,
                 'cedula' => $this->cedula
             ]);
-        }else{
+        }else {
             $user->update([
                 'name' => $this->name,
                 'email' => $this->email,
@@ -47,12 +47,14 @@ class EditCreate extends Component
                 'cedula' => $this->cedula
             ]);
         }
-
+        $this->default();
     }
 
     public function setUpdateData($id){
+        $this->isEdit=true;
+
+        $this->userID=$id;
         $UserEdit = User::find($id);
-        $this->idUser = $UserEdit->id;
 
         $this->name = $UserEdit->name;
         $this->email = $UserEdit->email;
@@ -64,12 +66,26 @@ class EditCreate extends Component
     public function createUser(){
         $this-> validate();
 
-            User::create([
-                'name' => $this->name,
-                'email' => $this->email,
-                'password' => Hash::make($this->pass),
-                "cedula" => $this->cedula,
-                "address" => $this->address,
-            ]);
+        User::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => Hash::make($this->pass),
+            "cedula" => $this->cedula,
+            "address" => $this->address,
+        ]);
+
+        $this->default();
+    }
+
+    public function default(){
+        $this->name = "";
+        $this->email = "";
+        $this->pass = "";
+        $this->cedula = "";
+        $this->address = "";
+        if ($this->isEdit == true) {
+            $this->isEdit = false;
+            return redirect()->to('/user');
+        }
     }
 }

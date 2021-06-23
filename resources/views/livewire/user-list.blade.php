@@ -15,8 +15,7 @@
                         <span class="badge  rounded-pill mt-2 mb-2">CI: {{ $user->cedula }}</span>
                         {{-- Boton para ir a la vista de edicion, pasa dos parametros a getAction (ver UserList.php) --}}
                         <span class="badge bg-primary rounded-pill mt-2 mb-2 text-light" style="cursor: pointer"
-                            wire:click="getAction('edit', {{ $user->id }})">Editar</span>
-                        {{-- Boton para eliminar usuarios, pasa un parametro a deleteUser (ver UserList.php) --}}
+                            wire:click="getAction({{ $user->id }})">Editar</span>
                         <span class="badge bg-danger rounded-pill mt-2 mb-2 text-light" style="cursor: pointer"
                             wire:click="deleteUser({{ $user->id }})">Eliminar</span>
                     </div>
