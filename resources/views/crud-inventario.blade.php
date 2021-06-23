@@ -2,4 +2,5 @@
 
 @section('content')
     <livewire:admin-product>
+
 @endsection
