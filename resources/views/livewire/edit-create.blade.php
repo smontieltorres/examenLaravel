@@ -1,9 +1,9 @@
-<div>
+<div class="row">
 
-        <div class="col-12 col-md-4 mt-1 mb-2">
+        <div class="col-12">
             <div class="card">
                 @if ($isEdit)
-                    <h5 class="card-header text-center">Editar Producto</h5>
+                    <h5 class="card-header text-center">Editar Usuario</h5>
                 @else
                     <h5 class="card-header text-center">Crear Usuario</h5>
                 @endif

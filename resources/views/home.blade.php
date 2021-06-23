@@ -13,8 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                        <div class="container">
+                            <livewire:user-list/>
+                        </div>
 
-                    <livewire:user-list/>
                 </div>
             </div>
         </div>
