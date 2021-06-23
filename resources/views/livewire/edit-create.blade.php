@@ -19,31 +19,31 @@
                     </div>
                     {{-- COSTO --}}
                     <div class="form-group">
-                        <label for="price">Ingrese el Correo Electronico:</label>
-                        <input type="email" name="price" wire:model.defer="email" id="price" class="form-control">
-                        @error("price")
+                        <label for="email">Ingrese el Correo Electronico:</label>
+                        <input type="email" name="email" wire:model.defer="email" id="email" class="form-control">
+                        @error("email")
                             <span style="color:red;">Tiennes que llenar el campo Correo</span>
                         @enderror
                     </div>
                     {{-- INVENTARIO --}}
                     <div class="form-group">
-                        <label for="stock">Ingrese el contraseña:</label>
-                        <input type="password" name="stock" wire:model.defer="pass" id="stock" class="form-control">
-                        @error("stock")
+                        <label for="pass">Ingrese el contraseña:</label>
+                        <input type="password" name="pass" wire:model="pass" id="pass" class="form-control">
+                        @error("pass")
                             <span style="color:red;">Tiennes que llenar el campo Inventario</span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="stock">Ingrese la direccion:</label>
-                        <input type="text" name="stock" wire:model.defer="address" id="stock" class="form-control">
-                        @error("stock")
+                        <label for="address">Ingrese la direccion:</label>
+                        <input type="text" name="address" wire:model.defer="address" id="address" class="form-control">
+                        @error("address")
                             <span style="color:red;">Tiennes que llenar el campo Inventario</span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="stock">Ingrese el cedula:</label>
-                        <input type="number" name="stock" wire:model.defer="cedula" id="stock" class="form-control">
-                        @error("stock")
+                        <label for="cedula">Ingrese el cedula:</label>
+                        <input type="number" name="cedula" wire:model.defer="cedula" id="cedula" class="form-control">
+                        @error("cedula")
                             <span style="color:red;">Tiennes que llenar el campo Inventario</span>
                         @enderror
                     </div>
