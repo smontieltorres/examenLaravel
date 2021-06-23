@@ -3,6 +3,6 @@
 @section('content')
 
     {{-- Llamada a componente Livewire --}}
-    <livewire:show-product>
+    <livewire:edit-create>
 
 @endsection
