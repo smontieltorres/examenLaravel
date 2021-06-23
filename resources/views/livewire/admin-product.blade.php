@@ -18,18 +18,27 @@
                     <div class="card-body">
                         {{-- NOMBRE --}}
                         <div class="form-group">
-                            <label for="title">Ingrese el nombre</label>
+                            <label for="name">Ingrese el nombre</label>
                             <input type="text" name="name" wire:model.defer="name" id="name" class="form-control">
+                            @error("name")
+                                <span style="color:red;">Tiennes que llenar el campo Nombre</span>
+                            @enderror
                         </div>
                         {{-- COSTO --}}
                         <div class="form-group">
                             <label for="price">Ingrese el costo:</label>
                             <input type="number" name="price" wire:model.defer="price" id="price" class="form-control">
+                            @error("price")
+                                <span style="color:red;">Tiennes que llenar el campo Precio</span>
+                            @enderror
                         </div>
                         {{-- INVENTARIO --}}
                         <div class="form-group">
                             <label for="stock">Ingrese el inventario:</label>
                             <input type="number" name="stock" wire:model.defer="stock" id="stock" class="form-control">
+                            @error("stock")
+                                <span style="color:red;">Tiennes que llenar el campo Inventario</span>
+                            @enderror
                         </div>
                         {{-- GUARDAR --}}
                         <div class="form-group text-center">

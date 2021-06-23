@@ -13,6 +13,7 @@ class ShowProduct extends Component
     // Renderizado de la vista con datos
     public function render()
     {
+        // Peticion a la BD de los Productos
         $products = Product::orderBy('id', "DESC")->get();
 
         return view('livewire.show-product', compact('products'));

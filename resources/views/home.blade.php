@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    
+                    <livewire:user-list/>
                 </div>
             </div>
         </div>
