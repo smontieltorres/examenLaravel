@@ -18,7 +18,8 @@ class AdminProduct extends Component
 
     public function render()
     {
-        $products = Product::orderBy('id',"DESC")->get();
+        $products = Product::all();
+
         return view('livewire.admin-product', compact('products'));
     }
 
@@ -52,6 +53,7 @@ class AdminProduct extends Component
         
         if($this->isEdit == true){
             $this->isEdit = false;
+            $this->productID = "";
         }
     }
 

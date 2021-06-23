@@ -13,4 +13,8 @@ class ShowProduct extends Component
 
         return view('livewire.show-product', compact('products'));
     }
+
+    public function redirectLogin(){
+        return redirect()->to('/login');
+    }
 }
