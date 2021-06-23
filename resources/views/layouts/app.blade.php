@@ -20,6 +20,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
     @livewireStyles
+
+    <style>
+        .card {
+            box-shadow: 1px 1px 5px #dcdcdc
+        }
+    </style>
 </head>
 <body>
     <div id="app">

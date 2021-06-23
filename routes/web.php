@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/crud', function(){
+Route::get('/administracion', function(){
     return view('crud-inventario');
 })->name('crud');
 
