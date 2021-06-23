@@ -2,26 +2,33 @@
 
 namespace App\Http\Livewire;
 
+// Importacion de recursos
+
 use Livewire\Component;
 use App\Product;
 
 class AdminProduct extends Component
 {
 
+    // Definicion de variables globales
     public $name, $stock, $price, $isEdit=false, $productID;
 
+    // Definicion de Reglas de Validacion
     protected $rules = [
         'name'=> 'required',
         'stock' => 'required',
         'price' => 'required'
     ];
 
+    // Renderizado de la vista con datos
     public function render()
     {
-        $products = Product::orderBy('id',"DESC")->get();
+        $products = Product::all();
+
         return view('livewire.admin-product', compact('products'));
     }
 
+    // Funcion de Creacion de Producto
     public function create(){
 
         $this->validate();
@@ -52,6 +59,7 @@ class AdminProduct extends Component
         
         if($this->isEdit == true){
             $this->isEdit = false;
+            $this->productID = "";
         }
     }
 
