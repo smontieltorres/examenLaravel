@@ -2,7 +2,9 @@
 
 @section('content')
 
-    {{-- Llamada a componente Livewire --}}
-    <livewire:edit-create>
+    <div class="container">
+        {{-- Llamada a componente Livewire --}}
+        <livewire:edit-create>
+    </div>
 
 @endsection
